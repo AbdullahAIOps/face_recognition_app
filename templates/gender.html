@@ -1,53 +1,69 @@
 {% extends "base.html" %}
 
 {% block bodyblock %}
-<dev class="container" style="margin-left: 69px;">
-<dev class="row">
-    <dev class="col">
-        <br><br>
-        <h1 class="display-8">Gender classification</h1>
-        <p>Upload image in .png .jpeg .jpg our model will classify image accourding to gender</p>
-        <form action="#", method="post", enctype="multipart/form-data">
-            <div class="input-group">
-                <input type="file" class="form-control" name="image-name" required>
-                <input type="submit" value="Upload and Predict" class="btn btn-outline-primary">
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1 class="display-4 mb-4">Gender Classification</h1>
+            <p class="lead">Upload an image (in .png, .jpeg, or .jpg format) and our model will classify the gender based on facial features detected in the image.</p>
+            <p>Our powerful machine learning model analyzes facial characteristics and provides a reliable prediction with a confidence score.</p>
 
-            </div>
-        </form>
+            <h3 class="mt-4">Steps to use the app:</h3>
+            <ul>
+                <li><strong>Upload an image:</strong> Choose an image containing a face to classify its gender.</li>
+                <li><strong>Submit for Prediction:</strong> Hit the "Upload and Predict" button, and the app will process the image.</li>
+                <li><strong>View Results:</strong> Get the gender classification results along with the confidence score for each face detected.</li>
+            </ul>
 
-    </dev>
-    <dev class="col-8">
-        {% if fileuploaded %}
+            <h3 class="mt-4">Supported Formats:</h3>
+            <ul>
+                <li>JPEG, PNG, JPG</li>
+            </ul>
 
-        <img src="/static/predict/prediction_img.jpg" alt="" width="500">
-        <br>
-        <br>
-        <table class="table table-hover table-striped">
-            <tr>
-                <th>Detection Face</th>
-                <th>Eigen Face</th>
-                <th>Gender Face</th>
-                <th>score Face</th>
-            </tr>
+            <h3 class="mt-4">Why Choose This Tool?</h3>
+            <ul>
+                <li>Quick and accurate gender predictions based on facial features.</li>
+                <li>Real-time processing with instant results.</li>
+                <li>Easy-to-use interface suitable for all users.</li>
+            </ul>
 
-            {% for element in results %}
-            <tr>
-                <td>
-                <img src="/static/predict/{{ element[0] }}" alt="" class="images-fluid" , height="100">
-            </td>
-            <td>
-                <img src="/static/predict/{{ element[1] }}" alt="" class="images-fluid" , height="100">
-            </td>
-            <td>{{ element[2] }}</td>
-            <td>{{ element[3] }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
+            <!-- Upload Form -->
+            <form action="#" method="post" enctype="multipart/form-data">
+                <div class="input-group mb-4">
+                    <input type="file" class="form-control" name="image-name" required>
+                    <button type="submit" class="btn btn-outline-primary ml-2">Upload and Predict</button>
+                </div>
+            </form>
 
-    </dev>
-    
-</dev>
+        </div>
 
-</dev>
+        <div class="col-lg-6">
+            {% if fileuploaded %}
+            <h3 class="mt-4">Prediction Results</h3>
+            <img src="/static/predict/prediction_img.jpg" alt="Prediction Result" class="img-fluid mb-4" width="500">
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Detected Face</th>
+                        <th>Eigen Face</th>
+                        <th>Gender</th>
+                        <th>Confidence Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for element in results %}
+                    <tr>
+                        <td><img src="/static/predict/{{ element[0] }}" alt="Detection Face" class="img-fluid" height="100"></td>
+                        <td><img src="/static/predict/{{ element[1] }}" alt="Eigen Face" class="img-fluid" height="100"></td>
+                        <td>{{ element[2] }}</td>
+                        <td>{{ element[3] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% endif %}
+        </div>
+    </div>
+</div>
 {% endblock %}

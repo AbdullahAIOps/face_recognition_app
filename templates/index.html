@@ -1,12 +1,36 @@
 {% extends "base.html" %}
 
 {% block bodyblock %}
-
-<div class="container">
-    <br><br>
-    <h1>Welcome to Faicel Recognization App</h1>
+<div class="container mt-5">
+    <h1 class="display-4">Welcome to Face Recognition App</h1>
     <br>
-    <p>content</p>
-</div>
+    
+    <!-- Image Section -->
+    <img src="/static/images/python.jpeg" class="img-fluid rounded mx-auto d-block" alt="Python Image">
+    <br><br>
+    
+    <!-- Introduction Section -->
+    <p>Welcome to the <strong>Face Recognition App</strong>, your go-to platform for accurate and efficient gender classification based on facial images. With cutting-edge machine learning algorithms and pre-trained models, our app provides real-time predictions of gender from uploaded images.</p>
+    
+    <p>Our app utilizes advanced face detection technologies and facial feature extraction to ensure reliable and precise results. Whether you're looking to integrate gender classification into your projects or simply curious about facial recognition, this app offers you a seamless experience.</p>
 
+    <!-- How It Works Section -->
+    <h3>How it works:</h3>
+    <ul>
+        <li><strong>Upload an Image:</strong> Simply upload an image containing faces for gender prediction.</li>
+        <li><strong>Real-time Processing:</strong> The app processes the image and identifies the gender of the faces detected.</li>
+        <li><strong>Instant Prediction:</strong> The results are displayed along with confidence scores for each prediction.</li>
+    </ul>
+
+    <!-- Key Features Section -->
+    <h3>Key Features:</h3>
+    <ul>
+        <li>Face Detection & Recognition using <strong>OpenCV</strong> and pre-trained models.</li>
+        <li>Gender prediction with a high level of accuracy.</li>
+        <li>Supports multiple image formats including <strong>JPEG, PNG, and JPG</strong>.</li>
+        <li>Easy-to-use interface for both casual users and developers.</li>
+    </ul>
+
+    <p>Try it now by uploading a photo and get your predictions instantly!</p>
+</div>
 {% endblock %}
