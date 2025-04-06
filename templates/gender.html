@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block bodyblock %}
+<dev class="container" style="margin-left: 69px;">
+<dev class="row">
+    <dev class="col">
+        <br><br>
+        <h1 class="display-8">Gender classification</h1>
+        <p>Upload image in .png .jpeg .jpg our model will classify image accourding to gender</p>
+        <form action="#", method="post", enctype="multipart/form-data">
+            <div class="input-group">
+                <input type="file" class="form-control" name="image-name" required>
+                <input type="submit" value="Upload and Predict" class="btn btn-outline-primary">
+
+            </div>
+        </form>
+
+    </dev>
+    <dev class="col-8">
+        {% if fileuploaded %}
+
+        <img src="/static/predict/prediction_img.jpg" alt="" width="500">
+        <br>
+        <br>
+        <table class="table table-hover table-striped">
+            <tr>
+                <th>Detection Face</th>
+                <th>Eigen Face</th>
+                <th>Gender Face</th>
+                <th>score Face</th>
+            </tr>
+
+            {% for element in results %}
+            <tr>
+                <td>
+                <img src="/static/predict/{{ element[0] }}" alt="" class="images-fluid" , height="100">
+            </td>
+            <td>
+                <img src="/static/predict/{{ element[1] }}" alt="" class="images-fluid" , height="100">
+            </td>
+            <td>{{ element[2] }}</td>
+            <td>{{ element[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+
+    </dev>
+    
+</dev>
+
+</dev>
+{% endblock %}

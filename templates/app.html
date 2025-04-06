@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block bodyblock %}
+ <dev class="container" style="margin-left: 69px;">
+<h2>Faicel Recognization App</h2>
+<br>
+<br>
+<p>Gender classification Model: <br>
+    This program use machine learning model for gender prediction using images </p>
+<br>
+<img src="/static/images/genders.jpg" class="images-fluid" alt="" width="600">
+
+<a href="{{ url_for('gender') }}" class="btn btn-primary btn-lg" tabindex="-1" role="button">Gender App</a>
+
+ </dev>
+{% endblock %}
