@@ -32,7 +32,6 @@ Getting Started:
 Clone this repository to your local machine.
 
 Install the required libraries:
-
 bash
 Copy
 Edit
