@@ -8,10 +8,10 @@ import pickle
 # MODEL LOADING
 # ======================
 # Load face detector
-haar = cv2.CascadeClassifier("/home/abdullah/Desktop/haarcascade_frontalface_default.xml")
+haar = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 # Load pre-trained gender model with verified class order
-model_data = pickle.load(open("/home/abdullah/Desktop/verified_gender_model.pkl", "rb"))
+model_data = pickle.load(open("verified_gender_model.pkl", "rb"))
 model = model_data['model']          # SVM classifier
 model_pca = model_data['pca']        # PCA model
 mean = model_data['mean']            # Mean face
