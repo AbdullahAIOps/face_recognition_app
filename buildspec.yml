@@ -13,7 +13,7 @@ phases:
     commands:
       - echo running building stage...
       - echo succecfully login into aws
-      - docker build $REPO_URL:latest .
+      - docker build -t $REPO_URL:latest .
       - docker tag $REPO_URL:latest $IMAGE_TAG:latest
   post_build:
     commands:
